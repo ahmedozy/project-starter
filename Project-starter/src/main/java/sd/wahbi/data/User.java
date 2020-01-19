@@ -29,6 +29,9 @@ public class User {
 	
 	@ManyToOne
 	private Unit unit;
+	
+	@ManyToOne
+	private Role role;
 
 	/**
 	 * @return the id
@@ -84,6 +87,22 @@ public class User {
 	 */
 	public void setUnit(Unit unit) {
 		this.unit = unit;
+	}
+	
+	
+
+	/**
+	 * @return the role
+	 */
+	public Role getRole() {
+		return role;
+	}
+
+	/**
+	 * @param role the role to set
+	 */
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 	/* (non-Javadoc)
