@@ -4,8 +4,9 @@
 package sd.wahbi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import sd.wahbi.dto.CommonRequest;
 import sd.wahbi.dto.CommonResponse;
@@ -17,7 +18,7 @@ import sd.wahbi.service.UserService;
  * @author ahmedozy
  *
  */
-@Controller("/user")
+@RestController("/user")
 public class UserController {
 
 	@Autowired
@@ -26,9 +27,11 @@ public class UserController {
 	@GetMapping("/all")
 	public ListResponse getAllUsers() {
 		ListResponse response = userService.getAllUsers();
+		System.out.println(response);
 		return response;
 	}
 	
+	@PostMapping("/save")
 	public CommonResponse saveUser(UserDto user) {
 		CommonRequest request = new CommonRequest();
 		request.setDto(user);
