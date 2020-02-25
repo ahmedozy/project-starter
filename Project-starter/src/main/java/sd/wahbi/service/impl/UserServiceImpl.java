@@ -61,7 +61,9 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public CommonResponse saveUser(CommonRequest request) {
 		CommonResponse response = new CommonResponse();
+		System.out.println("service userDto ..." + (UserDto)request.getDto());
 		User user = mapper.map((UserDto)request.getDto(), User.class);
+		System.out.println("service user bean ..." + user);
 		User res = userRepo.save(user);
 		UserDto userDto = mapper.map(res, UserDto.class);
 		response.setResponseBean(userDto);
